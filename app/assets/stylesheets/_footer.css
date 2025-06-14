@@ -1,0 +1,15 @@
+/* define footer properties */
+footer {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    background: #f1f1f1;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+    display: grid;
+    justify-content: center;
+}
+footer .footer-links {
+    display:flex;
+    justify-content: space-around;
+}
