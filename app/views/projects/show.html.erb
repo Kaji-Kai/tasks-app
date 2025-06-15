@@ -1,0 +1,28 @@
+<h1><%= @project.title %></h1>
+<p><%= @project.description %></p>
+<h2>Tasks</h2>
+<%= link_to "New Task", new_project_task_path(@project), class: "btn" %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Priority</th>
+      <th>Done</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @project.tasks.each do |t| %>
+        <tr>
+          <td><%= link_to t.title, task_path(t) %></td>
+          <td><%= t.priority.titleize %></td>
+          <td><%= t.done? ? "✅" : "❌" %></td>
+          <td>
+            <%= link_to "Edit", edit_task_path(t) %> |
+            <%= button_to "Delete", task_path(@project, t), method: :delete, data: { confirm: "Delete?" } %>
+          </td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+<%= link_to "Back to Projects", projects_path %>

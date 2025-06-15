@@ -1,10 +1,30 @@
-<p style="color: green"><%= notice %></p>
+<h1><%= @task.title %></h1>
+<p><b>Project:</b> <%= link_to @task.project.title, project_path(@task.project) %></p>
+<p><b>Description:</b> <%= @task.description %></p>
+<p><b>Priority:</b> <%= @task.priority.titleize %></p>
+<p><b>Done:</b> <%= @task.done? ? "Yes" : "No" %></p>
 
-<%= render @task %>
+<h2>Add a comment</h2>
+<%= render "comments/form" %>
 
-<div>
-  <%= link_to "Edit this task", edit_task_path(@task) %> |
-  <%= link_to "Back to tasks", tasks_path %>
-
-  <%= button_to "Destroy this task", @task, method: :delete %>
-</div>
+<h2>Previous comments</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @comments.each do |c| %>
+        <tr>
+          <td><%= c.content %></td>
+          <td>
+            <%= link_to "Edit",   edit_comment_path(c) %> |
+            <%= button_to "Delete", comment_path(c), method: :delete, data: { confirm: "Delete?" } %>
+          </td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+<%= link_to "Back to Tasks", tasks_path %>

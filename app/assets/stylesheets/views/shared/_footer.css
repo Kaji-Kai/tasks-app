@@ -1,8 +1,8 @@
 /* define footer properties */
-footer {
+footer.app-footer {
     bottom: 0;
     width: 100%;
-    position: absolute;
+    position: relative;
     background: #f1f1f1;
     padding: 1rem;
     border-top: 1px solid #ccc;

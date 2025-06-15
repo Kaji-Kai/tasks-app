@@ -12,11 +12,16 @@
   <body>
     <!--header-->
     <%= render "shared/header" %>
-    <!--notifications-->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <!--content-->
-    <%= yield %>
+    <!--main-->
+    <main>
+      <div class="container">
+        <!--notifications-->
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <!--content-->
+        <%= yield %>
+      </div>
+    </main>
     <!--footer-->
     <%= render "shared/footer" %>
   </body>

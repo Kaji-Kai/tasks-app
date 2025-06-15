@@ -3,6 +3,7 @@ header.app-header {
     position: fixed;
     top: 0;
     width: 100%;
+    height: auto;
     background: #f8f9fa;
     margin: 0;
     padding: 1rem 0 1rem 0;
@@ -27,10 +28,10 @@ header.app-header {
 
 /* align items in the logon section */
 .user-info {
+    display: flex;
     padding-right: 10px;
     font-size: 0.9rem;
     white-space: nowrap;
-    /*margin-right: 20px;*/
     text-align: center;
-
+    align-items: center;
 }

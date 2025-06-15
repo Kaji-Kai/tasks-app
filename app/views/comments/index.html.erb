@@ -1,0 +1,24 @@
+<h1>All Your Comments</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Content</th>
+    <th>Task</th>
+    <th>Project</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+      <% @comments.each do |c| %>
+        <tr>
+          <td><%= truncate(c.content, length: 50) %></td>
+          <td><%= link_to c.task.title, task_path(c.task) %></td>
+          <td><%= link_to c.task.project.title, project_path(c.task.project) %></td>
+          <td>
+            <%= link_to "Edit",   edit_comment_path(c) %> |
+            <%= button_to "Delete", comment_path(c), method: :delete, data: { confirm: "Delete?" } %>
+          </td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>

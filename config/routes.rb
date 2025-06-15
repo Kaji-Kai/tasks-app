@@ -9,10 +9,15 @@ Rails.application.routes.draw do
   root "home#index"
 
   #-----resources-----
-  resources :home
-  resources :comments
-  resources :projects
-  resources :tasks
+
+  resources :projects do
+    resources :tasks, shallow: true do
+      resources :comments, shallow: true
+    end
+  end
+
+  resources :tasks, only: [:index, :show]
+  resources :comments, only: [:index, :edit, :update, :destroy]
 
 
 end

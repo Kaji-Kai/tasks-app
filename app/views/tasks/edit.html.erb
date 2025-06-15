@@ -1,10 +1,4 @@
-<h1>Editing task</h1>
+<h1>Edit Task “<%= @task.title %>”</h1>
+<%= render "form", project: @project, task: @task %>
+<%= link_to "← Back to Tasks", project_tasks_path(@project) %>
 
-<%= render "form", task: @task %>
-
-<br>
-
-<div>
-  <%= link_to "Show this task", @task %> |
-  <%= link_to "Back to tasks", tasks_path %>
-</div>

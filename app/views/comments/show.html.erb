@@ -1,0 +1,15 @@
+<h1>Comment by <%= @comment.owner.email %></h1>
+
+<p><%= @comment.content %></p>
+
+<p class="meta">
+  On Task:
+  <%= link_to @task.title, task_path(@task) %>
+  &middot; Posted at <%= @comment.created_at.strftime("%b %-d, %Y %H:%M") %>
+</p>
+
+<%= link_to "← Back to Task", project_task_path(@task.project, @task) %> |
+<%= link_to "Edit", edit_comment_path(@comment) %> |
+<%= button_to "Delete", comment_path(@comment),
+              method: :delete,
+              data: { confirm: "Really delete this comment?" } %>
